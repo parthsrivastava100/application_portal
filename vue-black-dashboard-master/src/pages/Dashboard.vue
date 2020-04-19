@@ -1,6 +1,7 @@
 <template>
 <div>
-<h1 class="title">Career Portal</h1>
+<h1 class="title">Application Portal</h1>
+<base-button type="success" v-on:click="logout">Logout</base-button>
 <form>
 <card>
   <base-input addon-left-icon="tim-icons icon-single-02" placeholder="Enter the organisation name"  v-model="com.Organization">
@@ -82,6 +83,11 @@ gett : function(){
 this.$http.get('https://dem0-dd079.firebaseio.com/posts.json').then(function(data){
 this.coms=data.body;
 });
+},
+logout : function(){
+firebase.auth().signOut().then(() => {
+this.$router.replace('../views/login.vue');
+})
 }
 }
 }

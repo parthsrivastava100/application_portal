@@ -1,7 +1,9 @@
 import DashboardLayout from "@/layout/dashboard/DashboardLayout.vue";
 // GeneralViews
 import NotFound from "@/pages/NotFoundPage.vue";
-
+import login from '@/views/login.vue';
+import signup from '@/views/signup.vue';
+import dashboard from "@/pages/Dashboard.vue";
 // Admin pages
 const Dashboard = () => import(/* webpackChunkName: "dashboard" */"@/pages/Dashboard.vue");
 const Profile = () => import(/* webpackChunkName: "common" */ "@/pages/Profile.vue");
@@ -13,9 +15,12 @@ const TableList = () => import(/* webpackChunkName: "common" */ "@/pages/TableLi
 
 const routes = [
   {
-    path: "/",
+    path: "/home",
     component: DashboardLayout,
     redirect: "/dashboard",
+    meta: {
+      requiresAuth:true
+    },
     children: [
       {
         path: "dashboard",
@@ -54,7 +59,22 @@ const routes = [
       }
     ]
   },
-  { path: "*", component: NotFound },
+  { path: "*", redirect:'/login' },
+  {
+    path:'/login',
+    name:'login',
+    component:login
+  },
+  {
+    path:'/',
+    name:'login',
+    component:login
+  },
+  {
+    path:'/signup',
+    name:'signup',
+    component:signup
+  },
 ];
 
 /**
