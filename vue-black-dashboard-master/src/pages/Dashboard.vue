@@ -30,7 +30,7 @@
 <base-table :data="coms"
             :columns="columns">
         <template slot="columns">
-         
+         <th>Index</th>
           <th>Name of Organisation</th>
           <th>Job Profile</th>
           <th>Description</th>
@@ -38,6 +38,7 @@
           <th class="text-right">Deadline</th>
         </template>  
         <template slot-scope="{row}">
+          <td>{{row.Id}}</td>
           <td>{{row.Organization}}</td>
           <td>{{row.Profile}}</td>
           <td>{{row.Description}}</td>
@@ -80,7 +81,7 @@ this.$http.post('https://dem0-dd079.firebaseio.com/posts.json',this.com).then(fu
 });
 },
 gett : function(){
-this.$http.get('https://dem0-dd079.firebaseio.com/posts.json').then(function(data){
+this.$http.get('https://dem0-dd079.firebaseio.com/1EbtbfCsM32kj6aCPv5KXp_SEJ97WwkZO1TEf-wqrtbw/Sheet1').then(function(data){
 this.coms=data.body;
 });
 },
