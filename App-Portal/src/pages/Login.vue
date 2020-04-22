@@ -6,7 +6,8 @@
           <card type="secondary"
                   header-classes="bg-white pb-5"
                   body-classes="px-lg-5 py-lg-5"
-                  class="border-0 mb-0">
+                  class="border-0 mb-0"
+				  >
                 <template>
                     <div class="text-muted text-center mb-3">
                         <small>If you are not registered and are a part of IITK Community...</small>
@@ -57,7 +58,12 @@
   </div>
 </template>
 <style>
-
+.container1 {
+    height: 40em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 </style>
 <script>
   import firebase from "firebase";
@@ -88,7 +94,7 @@
 		  function(err) {
 			_this.$notify({type: 'danger', horizontalAlign: 'center', message: 'Invalid Email or Password!'})
 			_this.wrong = true;
-			this.$store.commit('load', false);
+			_this.$store.commit('load', false);
 		  }
 		);
 	  },

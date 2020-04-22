@@ -1,6 +1,3 @@
-// GeneralViews
-import NotFound from "@/pages/NotFoundPage.vue";
-
 // Admin pages
 const Portal = () => import(/* webpackChunkName: "dashboard" */"@/pages/Portal.vue");
 const Login = () => import(/* webpackChunkName: "common" */"@/pages/Login.vue");
@@ -27,7 +24,7 @@ const routes = [
   },
   { 
 	path: "*",
-	component: NotFound,
+	redirect: 'portal',
 	meta: {
 	  requiresAuth: true
 	} 

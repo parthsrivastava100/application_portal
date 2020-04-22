@@ -39,7 +39,7 @@
                                     type="password"
 									v-model="password"
 									v-on:keyup.enter="registerUser"
-                                    placeholder="Password"
+                                    placeholder="Create Password"
 									autocomplete="current-password"
                                     addon-left-icon="tim-icons icon-key-25">
                         </base-input>
@@ -64,7 +64,12 @@
   </div>
 </template>
 <style>
-
+.container1 {
+    height: 40em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 </style>
 <script>
   import firebase from "firebase";
@@ -93,6 +98,7 @@
 				var _this = this;
 				firebase.auth().createUserWithEmailAndPassword(this.email, this.password).then(
 				  function(user) {
+					_this.$store.commit('load', true);
 					_this.sendEmail();
 				  },
 				  function(err) {
@@ -103,6 +109,7 @@
 				this.$notify({type: 'danger', horizontalAlign: 'center', message: 'Password re-entered is different!'});
 				this.e3 = true;
 				this.e2 = true;
+				this.e1 = false;
 			}
 		} else {
 			this.$notify({type: 'danger', horizontalAlign: 'center', message: 'Email is not Authorized!'});
