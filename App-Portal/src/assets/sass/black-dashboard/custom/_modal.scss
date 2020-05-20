@@ -79,7 +79,7 @@
     }
 
     &.modal-primary{
-        @include modal-colors($primary, $white);
+        @include modal-colors(#1c3183, $white);
     }
 
     &.modal-danger{
@@ -99,7 +99,7 @@
     }
 
     .modal-header .close{
-        color: $danger;
+        color: $white;
         text-shadow: none;
 
         &:hover,
@@ -150,7 +150,7 @@
   }
 
   .modal-header .close{
-    color: $dark-background;
+    color: $white;
     top: 30px !important;
   }
 

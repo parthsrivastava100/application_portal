@@ -2,7 +2,7 @@
   <div>
 	<loading
 		:active.sync="$store.state.loading"
-		:color="'#e14eca'"
+		:color="'#6baeec'"
 		:background-color="'#000000'"
 		:height="128"
 		:width="128"

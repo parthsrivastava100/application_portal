@@ -29,14 +29,6 @@ h1,h2,h3,h4,h5,h6{
     color: $opacity-8;
 }
 
-a{
-    color: $primary-states;
-    font-weight: $font-weight-light;
-    &:hover,
-    &:focus{
-        color: $primary;
-    }
-}
 h1, .h1 {
     line-height: 1.05;
     margin-bottom: $margin-base-vertical * 2;

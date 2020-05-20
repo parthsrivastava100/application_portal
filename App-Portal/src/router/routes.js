@@ -2,6 +2,7 @@
 const Portal = () => import(/* webpackChunkName: "dashboard" */"@/pages/Portal.vue");
 const Login = () => import(/* webpackChunkName: "common" */"@/pages/Login.vue");
 const Register = () => import(/* webpackChunkName: "common" */"@/pages/Register.vue");
+const PasswordReset = () => import(/* webpackChunkName: "common" */"@/pages/PasswordReset.vue");
 
 const routes = [
   {
@@ -13,6 +14,11 @@ const routes = [
 	path: "/register",
 	name: "register",
 	component: Register,
+  },
+  {
+	path: "/reset",
+	name: "reset",
+	component: PasswordReset,
   },
   {
 	path: "/portal",

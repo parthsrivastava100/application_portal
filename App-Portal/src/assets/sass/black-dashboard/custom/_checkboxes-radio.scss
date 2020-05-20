@@ -47,7 +47,7 @@
 .form-check input[type="checkbox"]:checked + .form-check-sign::before,
 .form-check input[type="checkbox"]:checked + .form-check-sign::before{
   border: none;
-  background-color: $danger1;
+  background-color: $success;
 }
 
  .form-check .form-check-sign::after{

@@ -6,8 +6,7 @@
           <card type="secondary"
                   header-classes="bg-white pb-5"
                   body-classes="px-lg-5 py-lg-5"
-                  class="border-0 mb-0"
-				  >
+                  class="border-0 mb-0">
                 <template>
                     <div class="text-muted text-center mb-3">
                         <small>If you are not registered and are a part of IITK Community...</small>
@@ -47,9 +46,12 @@
                             Remember me
                         </base-checkbox>
                         <div class="text-center">
-                            <base-button type="danger" class="my-4" v-on:click="signIn">Sign In</base-button>
+                            <base-button type="info" class="my-4" v-on:click="signIn">Sign In</base-button>
                         </div>
                     </form>
+                </template>
+				<template>
+                    <a href="javascript:void(0)" @click="$router.replace('reset');"><p style="color:#6baeec">Forgot Password?</p></a>
                 </template>
             </card>
         </div>
@@ -100,11 +102,16 @@
 	  },
 	  checkEmail: function() {
 		var user = firebase.auth().currentUser;
+		var _this = this;
 		if (!user.emailVerified) {
-		  this.$notify({type: 'danger', horizontalAlign: 'center', timeout: 10000, message: 'Your Email has not yet been verified!'});
+		  this.$notify({type: 'danger', horizontalAlign: 'center', message: 'Your Email has not yet been verified!'});
+		  user.sendEmailVerification().then(function() {
+			_this.$notify({type: 'success', horizontalAlign: 'center', timeout: 10000, message: 'Verification Email Sent Once More!'});
+		  });
+		  firebase.auth().signOut().then(() => {});
 		  this.$store.commit('load', false);
 		} else {
-		  this.$router.replace('portal');
+		  this.$router.replace('dashboard');
 		}
 	  }
 	},

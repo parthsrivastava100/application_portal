@@ -7,7 +7,8 @@
         </div>
 	</center>
 	<div>
-		<base-button style="float:left;margin-left:20px" class="animation-on-hover" type="warning" v-on:click="gett">Get Data</base-button>
+		<base-button style="float:left;margin-left:20px" class="animation-on-hover" type="primary" v-on:click="getngo">Get NGO Internships</base-button>
+		<base-button style="float:left;margin-left:20px" class="animation-on-hover" type="warning" v-on:click="getrd">Get R&D Internships</base-button>
 		<base-button type="success" style="float:right; margin-right:20px" v-on:click="logout">Logout</base-button>
     </div>
 	<template>
@@ -87,9 +88,26 @@ export default{
 		}
 	},
 	methods : {
-		gett : function(){
+		getngo : function(){
+			this.$store.commit('load', true);
 			this.$http.get('https://dem0-dd079.firebaseio.com/1EbtbfCsM32kj6aCPv5KXp_SEJ97WwkZO1TEf-wqrtbw/Sheet1.json').then(function(data){
-			this.coms=data.body.slice(1,);
+				this.coms=data.body.slice(1,);
+				this.$store.commit('load', false);
+			},
+			function(err){
+				this.$notify({type: 'success', horizontalAlign: 'center', timeout: 10000, message: 'Something went wrong! Please try again.'});
+				this.$store.commit('load', false);
+			});
+		},
+		getrd : function(){
+			this.$store.commit('load', true);
+			this.$http.get('https://careerportal-816f6.firebaseio.com/1XegFXWx-mbsBYKj_ZQ3T9f0fP5MVZyXzCqaiRFNNw8M/Sheet1.json').then(function(data){
+				this.coms=data.body.slice(1,);
+				this.$store.commit('load', false);
+			},
+			function(err){
+				this.$notify({type: 'success', horizontalAlign: 'center', timeout: 10000, message: 'Something went wrong! Please try again.'});
+				this.$store.commit('load', false);
 			});
 		},
 		logout : function(){
