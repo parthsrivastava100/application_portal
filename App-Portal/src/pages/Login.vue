@@ -107,7 +107,9 @@
 		  this.$notify({type: 'danger', horizontalAlign: 'center', message: 'Your Email has not yet been verified!'});
 		  user.sendEmailVerification().then(function() {
 			_this.$notify({type: 'success', horizontalAlign: 'center', timeout: 10000, message: 'Verification Email Sent Once More!'});
-		  });
+		  }).catch(function(error) {
+        _this.$notify({type: 'danger', horizontalAlign: 'center', message: error.message});
+      });
 		  firebase.auth().signOut().then(() => {});
 		  this.$store.commit('load', false);
 		} else {

@@ -102,7 +102,7 @@
 					_this.sendEmail();
 				  },
 				  function(err) {
-					_this.$notify({type: 'danger', horizontalAlign: 'center', message: 'Unknown Error!'});
+					_this.$notify({type: 'danger', horizontalAlign: 'center', message: err.message});
 				  }
 				);
 			} else {
@@ -122,7 +122,7 @@
 		user.sendEmailVerification().then(function() {
 		  _this.$notify({type: 'success', horizontalAlign: 'center', message: 'Verification Email Sent!'});
 		}).catch(function(error) {
-		  _this.$notify({type: 'danger', horizontalAlign: 'center', message: 'Unknown error, please re-register!'});
+		  _this.$notify({type: 'danger', horizontalAlign: 'center', message: error.message});
 		});
 		firebase.auth().signOut().then(() => {
 		  _this.$router.replace('login');

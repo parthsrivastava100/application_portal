@@ -70,7 +70,7 @@
 		    firebase.auth().sendPasswordResetEmail(_this.email).then(function() {
 		      _this.$notify({type: 'success', horizontalAlign: 'center', message: 'Email for Password reset sent'});
 		    }).catch(function(error) {
-		      _this.$notify({type: 'danger', horizontalAlign: 'center', message: 'Error! Please retry...'});
+		      _this.$notify({type: 'danger', horizontalAlign: 'center', message: error.message});
 		    });
 			if(user) {
 			  this.$router.replace('portal');

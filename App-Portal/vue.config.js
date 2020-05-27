@@ -19,11 +19,11 @@ module.exports = {
     ]
   },
   pwa: {
-    name: 'Career Portal',
-    themeColor: '#344675',
-    msTileColor: '#344675',
+    name: 'Application Portal',
+    themeColor: '#6baeec',
+    msTileColor: '#6baeec',
     appleMobileWebAppCapable: 'yes',
-    appleMobileWebAppStatusBarStyle: '#344675'
+    appleMobileWebAppStatusBarStyle: '#6baeec'
   },
   pluginOptions: {
     i18n: {
